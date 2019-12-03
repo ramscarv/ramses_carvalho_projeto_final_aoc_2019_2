@@ -1,0 +1,80 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity ucontrol is
+	port(	opcode : in std_logic_vector(3 downto 0); -- Opcode
+			branch : out std_logic;
+			memtoread : out std_logic;
+			memtoreg : out std_logic;	
+			ulaop : out std_logic_vector(3 downto 0); -- 4bits
+			memtowrite: out std_logic;
+			ulasrc : out std_logic;
+			regwrite : out std_logic;
+			regdst: out std_logic);
+end ucontrol;
+
+architecture behavior of ucontrol is
+	
+begin	
+	process (opcode)
+	begin
+		case opcode is
+			when "0000" => --add
+				branch <= '0';
+				memtoread <= '1';
+				regdst <= '1';		
+				memtoreg <= "1";
+				UlaOp <= "0000";
+				memwrite => "1";
+				ulasrc <= '1';
+				regwrite <= "1"; 
+			when "0001" => --sub
+				branch <= '0';
+				memtoread <= '1';
+				regdst <= '1';		
+				memtoreg <= "1";
+				UlaOp <= "0001";
+				memwrite => "1";
+				ulasrc <= '1';
+				regwrite <= "1";
+			when "0010" => --lw
+				branch <= '0';
+				memtoread <= '1';
+				regdst <= '1';		
+				memtoreg <= "1";
+				UlaOp <= "0010";
+				memwrite => "0";
+				ulasrc <= '1';
+				regwrite <= "1";
+			when "0011" => --sw
+				branch <= '0';
+				memtoread <= '0';
+				regdst <= '0';		
+				memtoreg <= "0";
+				UlaOp <= "0011";
+				memwrite => "1";
+				ulasrc <= '1';
+				regwrite <= "0";
+			when "0100" => --beq
+				branch <= '1';
+				memtoread <= '0';
+				regdst <= '0';		
+				memtoreg <= "0";
+				UlaOp <= "0100";
+				memwrite => "0";
+				ulasrc <= '0';
+				regwrite <= "0"; 
+			when "0101" => --jump
+				branch <= '0';
+				memtoread <= '0';
+				regdst <= '0';		
+				memtoreg <= "0";
+				UlaOp <= "0101";
+				memwrite => "0";
+				ulasrc <= '0';
+				regwrite <= "0"; 
+		end case;
+	end process;
+ end architecture behavior;

@@ -1,0 +1,44 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+Use ieee.std_logic_unsigned.all;
+
+Entity ULA8 is
+	Port (regA, regB: in std_logic_vector(7 downto 0);
+			ULAOp: in std_logic_vector(3 downto 0);
+			S: out std_logic_vector(7 downto 0);
+			zero: out std_logic);
+		  
+end ULA8;
+
+Architecture ULA of ULA8 is
+
+Begin
+	Process (regA,regB,UALOP)
+	Begin
+		if(UALOP = "0000") then
+			S <= regA + regB;			-- ADD
+		end if;
+		
+		if(UALOP = "0001") then
+			S <= regA - regB;			-- SUB
+		end if;
+		
+		L1: if(UALOP = "0100") then    -- BEQ
+			S <= regA - regB;	
+			L2: if( regA - regB = "0000000") then
+					zero <= '1';
+				 else
+					zero <= '0';
+				end if L2;
+		end if L1;
+		
+		if(UALOP = "0010") then
+			S <= regA + regB;			-- LW
+		end if;
+		
+		if(UALOP = "0011") then
+			S <= regA + regB;			-- SW
+		end if;
+	End process;
+	
+end ULA;
