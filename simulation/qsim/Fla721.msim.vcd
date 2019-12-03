@@ -1,0 +1,119 @@
+$comment
+	File created using the following command:
+		vcd file Fla721.msim.vcd -direction
+$end
+$date
+	Tue Dec 03 00:12:34 2019
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module nou_vhd_vec_tst $end
+$var wire 1 ! a $end
+$var wire 1 " b $end
+
+$scope module i1 $end
+$var wire 1 # gnd $end
+$var wire 1 $ vcc $end
+$var wire 1 % unknown $end
+$var wire 1 & devoe $end
+$var wire 1 ' devclrn $end
+$var wire 1 ( devpor $end
+$var wire 1 ) ww_devoe $end
+$var wire 1 * ww_devclrn $end
+$var wire 1 + ww_devpor $end
+$var wire 1 , ww_a $end
+$var wire 1 - ww_b $end
+$var wire 1 . \~QUARTUS_CREATED_GND~I_combout\ $end
+$var wire 1 / \a~input_o\ $end
+$var wire 1 0 \ALT_INV_a~input_o\ $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+1"
+0#
+1$
+x%
+1&
+1'
+1(
+1)
+1*
+1+
+0,
+1-
+x.
+0/
+10
+$end
+#100000
+1!
+1,
+1/
+00
+0-
+0"
+#200000
+0!
+0,
+0/
+10
+1-
+1"
+#300000
+1!
+1,
+1/
+00
+0-
+0"
+#400000
+0!
+0,
+0/
+10
+1-
+1"
+#500000
+1!
+1,
+1/
+00
+0-
+0"
+#600000
+0!
+0,
+0/
+10
+1-
+1"
+#700000
+1!
+1,
+1/
+00
+0-
+0"
+#800000
+0!
+0,
+0/
+10
+1-
+1"
+#900000
+1!
+1,
+1/
+00
+0-
+0"
+#1000000
